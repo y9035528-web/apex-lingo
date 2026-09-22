@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Apex Lingo | Cyberpunk Gamified Language Learning</title>
+  <meta name="description" content="Master languages through a high-octane cyberpunk curriculum path, multi-format exercises, and competitive hunter leagues.">
+  <meta name="theme-color" content="#05070B">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Google Fonts: Inter, Outfit, Cairo (for Arabic), & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Official Google Identity Services (GSI) API -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="cyber-default">
+
+  <!-- Main Viewport Container (Locked Mobile-First Shell) -->
+  <div class="app-viewport" id="app-viewport">
+    
+    <!-- Ambient Cyber Glows -->
+    <div class="ambient-glow glow-top" aria-hidden="true"></div>
+    <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+    <!-- ========================================================
+         STICKY TOP NAVIGATION BAR
+         ======================================================== -->
+    <header class="top-nav" id="top-nav">
+      <div class="top-nav-left">
+        <div class="brand-badge">
+          <span class="brand-icon">⚡</span>
+          <span class="brand-text">APEX<span class="brand-accent">LINGO</span></span>
+        </div>
+      </div>
+
+      <div class="top-nav-right">
+        <!-- Language Switcher Pill Button -->
+        <button class="stat-pill lang-pill" id="btn-language-select" title="Switch Target Language">
+          <span class="lang-flag" id="top-lang-flag">🇯🇵</span>
+          <span class="lang-code" id="top-lang-code">JP</span>
+          <span class="lang-arrow">▾</span>
+        </button>
+
+        <!-- Hearts Counter (❤️ 5 or ∞) -->
+        <div class="stat-pill heart-pill" id="pill-hearts" title="Hunter Energy Hearts">
+          <span class="pill-icon heart-icon">❤️</span>
+          <span class="pill-value" id="heart-counter">5</span>
+        </div>
+
+        <!-- Hunter XP Counter -->
+        <div class="stat-pill xp-pill" id="pill-xp" title="Total Hunter XP">
+          <span class="pill-icon">⚡</span>
+          <span class="pill-value" id="xp-counter">120</span>
+        </div>
+
+        <!-- Live Gem / Coin Counter -->
+        <button class="stat-pill gem-pill" id="btn-gem-counter" title="Gems available - Tap to open Store">
+          <span class="pill-icon gem-gem">💎</span>
+          <span class="pill-value" id="coin-counter">100</span>
+        </button>
+
+        <!-- Theme Quick Toggle (Google Light / Cyber Dark) -->
+        <button class="nav-icon-btn" id="btn-toggle-theme" aria-label="Toggle Light/Dark Theme" title="Toggle Light/Dark Theme">
+          <span id="theme-toggle-icon">☀️</span>
+        </button>
+
+        <!-- Store Button Trigger -->
+        <button class="nav-icon-btn" id="btn-open-store" aria-label="Open Cyber Store" title="Store & Subscriptions">
+          <span class="icon">🛒</span>
+        </button>
+
+        <!-- Settings Button Trigger -->
+        <button class="nav-icon-btn" id="btn-open-settings" aria-label="Open Settings" title="Settings">
+          <span class="icon">⚙️</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ========================================================
+         MAIN SCREEN VIEWPORT (4 SWAPPABLE TABS)
+         ======================================================== -->
+    <main class="screens-container" id="screens-container">
+
+      <!-- ----------------------------------------------------
+           TAB 1: LINGO (CURRICULUM PATH WITH THEMATIC STAGES)
+           ---------------------------------------------------- -->
+      <section class="tab-screen active" id="tab-lingo" aria-label="Curriculum Path">
+        <!-- Path Header Banner -->
+        <div class="path-header-card">
+          <div class="path-header-top-row">
+            <div class="path-header-tag" id="curriculum-sector-tag">HUNTER SECTOR 01 • JAPANESE</div>
+            <div class="user-greeting-badge" id="top-user-greeting">Hunter Solo</div>
+          </div>
+          <h1 class="path-header-title" id="curriculum-path-title">Neo-Tokyo Protocol</h1>
+          <p class="path-header-subtitle" id="curriculum-path-subtitle">Master multi-format exercises: Word Scramble, Audio & Translation</p>
+          <div class="path-progress-container">
+            <div class="path-progress-bar" id="curriculum-progress-bar" style="width: 10%;"></div>
+          </div>
+          <div class="path-progress-meta">
+            <span id="curriculum-status-text">Rank: E-Rank Hunter • 1/10 Nodes Complete</span>
+          </div>
+        </div>
+
+        <!-- The Duolingo Thematic Stages & Winding Vertical Path -->
+        <div class="path-scroll-area" id="path-scroll-area">
+          <div class="curriculum-path" id="curriculum-path">
+            <!-- Dynamic SVG Connectors Layer -->
+            <svg class="path-svg" id="path-svg" xmlns="http://www.w3.org/2000/svg">
+              <!-- Rendered dynamically by script.js -->
+            </svg>
+
+            <!-- Stages & Nodes Container -->
+            <div class="stages-container" id="stages-container">
+              <!-- Stage sections with headers and nodes injected by script.js -->
+            </div>
+          </div>
+
+          <!-- Path Footer / Sector Cleared Banner -->
+          <div class="sector-footer-card">
+            <span class="sector-icon">⛩️</span>
+            <h3 id="sector-footer-title">Final Sector: Apex Synthesis</h3>
+            <p>Clear all stages to awaken your ultimate Hunter rank.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ----------------------------------------------------
+           TAB 2: CHESS (TACTICAL MINIGAME)
+           ---------------------------------------------------- -->
+      <section class="tab-screen" id="tab-chess" aria-label="Tactical Chess Minigame">
+        <div class="chess-header-card">
+          <div class="chess-tag">TACTICAL COMBAT SIMULATION</div>
+          <h2 class="chess-title">Cyber Tactical Chess</h2>
+          <p class="chess-subtitle">Solve tactical puzzles to earn <span class="highlight-cyan">+15 💎 Gems</span> and XP.</p>
+        </div>
+
+        <!-- Tactical Puzzle Card -->
+        <div class="tactical-card">
+          <div class="tactical-meta">
+            <div class="tactical-badge" id="puzzle-badge">PUZZLE #1 • MATE IN 1</div>
+            <div class="tactical-turn" id="puzzle-turn-indicator">⚪ White to Move</div>
+          </div>
+          <div class="tactical-goal" id="puzzle-goal-text">
+            Deliver checkmate on the back rank against the enemy Cyber King!
+          </div>
+
+          <!-- Interactive 8x8 Chessboard Container -->
+          <div class="chessboard-wrapper">
+            <div class="chessboard-grid" id="chessboard-grid">
+              <!-- 64 dynamic tactical squares rendered by script.js -->
+            </div>
+          </div>
+
+          <!-- Chess Controls -->
+          <div class="chess-action-bar">
+            <button class="action-btn secondary-btn" id="btn-chess-reset">
+              <span class="btn-icon">↺</span> Reset
+            </button>
+            <button class="action-btn secondary-btn" id="btn-chess-hint">
+              <span class="btn-icon">💡</span> AI Hint
+            </button>
+            <button class="action-btn primary-btn" id="btn-chess-next">
+              <span class="btn-icon">⚡</span> Next Puzzle
+            </button>
+          </div>
+
+          <!-- Tactical Status Feedback Box -->
+          <div class="tactical-status-box" id="tactical-status-box">
+            Select a highlighted piece to view legal tactical strikes.
+          </div>
+        </div>
+      </section>
+
+      <!-- ----------------------------------------------------
+           TAB 3: TOURNAMENT (COMPETITIVE LEAGUES)
+           ---------------------------------------------------- -->
+      <section class="tab-screen" id="tab-tournament" aria-label="Hunter Tournament Leagues">
+        <!-- League Banner -->
+        <div class="tournament-hero-card">
+          <div class="league-emblem">🏆</div>
+          <div class="league-details">
+            <div class="league-tier">SHADOW MONARCH LEAGUE • TIER S</div>
+            <h2 class="league-title">Global Hunter Standings</h2>
+            <div class="league-timer" id="league-timer">⏳ Season Ends in: <span id="timer-countdown">18h 42m 15s</span></div>
+          </div>
+        </div>
+
+        <!-- User Standings Card -->
+        <div class="user-standing-card" id="user-standing-card">
+          <div class="standing-rank" id="user-rank-display">#4</div>
+          <div class="standing-avatar" id="user-rank-avatar">🤖</div>
+          <div class="standing-info">
+            <div class="standing-name" id="user-rank-name">Hunter Solo (You)</div>
+            <div class="standing-tier-badge">Promotion Zone ↗</div>
+          </div>
+          <div class="standing-score" id="user-rank-xp">120 XP</div>
+        </div>
+
+        <!-- Leaderboard List -->
+        <div class="leaderboard-container">
+          <div class="leaderboard-header">
+            <span>Rank & Hunter</span>
+            <span>League Score</span>
+          </div>
+          <div class="leaderboard-list" id="leaderboard-list">
+            <!-- Dynamic competitor rows rendered by script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ----------------------------------------------------
+           TAB 4: PROFILE (HUB, GOOGLE AUTH & PREFERENCES)
+           ---------------------------------------------------- -->
+      <section class="tab-screen" id="tab-profile" aria-label="Hunter Profile and Preferences">
+        <!-- Hunter ID Card -->
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar-wrapper">
+              <div class="profile-avatar" id="profile-avatar-display">🤖</div>
+              <span class="profile-status-dot"></span>
+            </div>
+            <div class="profile-id-info">
+              <div class="profile-name-row">
+                <h2 class="profile-name" id="profile-name-display">Hunter Solo</h2>
+                <button class="name-edit-btn" id="btn-edit-name" title="Change Hunter Name">✏️</button>
+              </div>
+              <div class="profile-rank-tag" id="profile-rank-tag">E-Rank Awakened</div>
+              <div class="profile-email" id="profile-email-display">hunter@apexlingo.io</div>
+            </div>
+          </div>
+
+          <!-- Quick Course Resume Button -->
+          <button class="resume-hero-btn" id="btn-resume-course">
+            <span class="resume-icon">⚡</span>
+            <div class="resume-text-group">
+              <span class="resume-label">CONTINUE ACTIVE MISSION</span>
+              <span class="resume-node-title" id="resume-node-title">Jump to Level 1: Neo-Tokyo Greetings</span>
+            </div>
+            <span class="resume-arrow">➔</span>
+          </button>
+        </div>
+
+        <!-- Hunter Statistics Matrix (XP, Streak, Gems, Hearts) -->
+        <div class="stats-matrix-grid">
+          <div class="stat-card">
+            <div class="stat-card-icon">⚡</div>
+            <div class="stat-card-value" id="stat-xp-count">120 XP</div>
+            <div class="stat-card-label">Total Hunter XP</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon">🔥</div>
+            <div class="stat-card-value" id="stat-streak-count">5 Days</div>
+            <div class="stat-card-label">Daily Streak</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon">💎</div>
+            <div class="stat-card-value" id="stat-gems-count">100</div>
+            <div class="stat-card-label">Total Gems</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon">❤️</div>
+            <div class="stat-card-value" id="stat-hearts-count">5 / 5</div>
+            <div class="stat-card-label">Hearts Energy</div>
+          </div>
+        </div>
+
+        <!-- Current Target Language Card -->
+        <div class="setting-group-card">
+          <div class="group-header-row">
+            <h3 class="group-title">
+              <span class="title-icon">🌐</span> Target Language Study
+            </h3>
+            <button class="action-btn secondary-btn compact-btn" id="btn-change-language-profile">
+              Change Track
+            </button>
+          </div>
+          <p class="group-desc" id="profile-language-desc">Currently learning: Japanese (Neo-Tokyo Sector 01)</p>
+        </div>
+
+        <!-- Theme Selector Card -->
+        <div class="setting-group-card">
+          <h3 class="group-title">
+            <span class="title-icon">🎨</span> Visual Theme & Style
+          </h3>
+          <p class="group-desc">Choose between Clean Google Material Design and Solo Leveling Cyberpunk.</p>
+          <div class="theme-switch-row">
+            <button class="theme-choice-btn" id="theme-btn-material">
+              <span class="swatch-preview light-swatch"></span>
+              <span>Google Material (Light)</span>
+            </button>
+            <button class="theme-choice-btn active" id="theme-btn-cyber">
+              <span class="swatch-preview dark-swatch"></span>
+              <span>Cyberpunk Void (Dark)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Robust Google Authentication Section -->
+        <div class="setting-group-card google-auth-card">
+          <h3 class="group-title">
+            <span class="title-icon">🔐</span> Google Cloud Identity
+          </h3>
+          <p class="group-desc">
+            Sync Hunter progression, gems, and unlocked tiers seamlessly across devices.
+          </p>
+
+          <!-- Verified Google Account Status Box (When logged in) -->
+          <div class="google-connected-box hidden" id="google-connected-box">
+            <div class="google-user-badge">
+              <span class="g-check-icon">✓</span>
+              <span>Verified Google Account</span>
+            </div>
+            <div class="google-user-info">
+              <div class="g-user-name" id="g-display-name">Sung Jin-Woo</div>
+              <div class="g-user-email" id="g-display-email">hunter@gmail.com</div>
+            </div>
+          </div>
+
+          <!-- Official GSI Container (Works when client id is live) -->
+          <div id="g_id_onload"
+               data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+               data-context="signin"
+               data-ux_mode="popup"
+               data-callback="handleGoogleSignInSuccess"
+               data-auto_prompt="false">
+          </div>
+          <div class="g_id_signin" 
+               data-type="standard" 
+               data-shape="rectangular" 
+               data-theme="filled_blue" 
+               data-text="signin_with" 
+               data-size="large" 
+               data-logo_alignment="left">
+          </div>
+
+          <!-- Instant Google Sign-In Action (Bulletproof local/offline/WebView handler) -->
+          <div class="auth-actions" style="margin-top: 12px;">
+            <button class="action-btn secondary-btn full-width" id="btn-google-auth-trigger">
+              <svg width="18" height="18" viewBox="0 0 48 48" class="google-svg">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+              </svg>
+              <span id="google-auth-btn-label">Sign in with Google</span>
+            </button>
+            <button class="action-btn outline-btn full-width hidden" id="btn-google-signout" style="margin-top: 8px;">
+              Sign Out of Google
+            </button>
+          </div>
+        </div>
+
+        <!-- Audio & Speech Preferences -->
+        <div class="setting-group-card">
+          <h3 class="group-title">
+            <span class="title-icon">🔊</span> Audio & Voice Synthesis
+          </h3>
+          
+          <div class="toggle-row">
+            <div class="toggle-text">
+              <span class="toggle-label">Sound Effects (SFX)</span>
+              <span class="toggle-desc">Synthesized retro 8-bit & futuristic chimes</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggle-sound" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <div class="toggle-text">
+              <span class="toggle-label">AI Voice Pronunciation (TTS)</span>
+              <span class="toggle-desc">Web Speech API pronunciation of words</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggle-speech" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Visual & Performance Preferences -->
+        <div class="setting-group-card">
+          <h3 class="group-title">
+            <span class="title-icon">✨</span> Visuals & Animations
+          </h3>
+
+          <div class="toggle-row">
+            <div class="toggle-text">
+              <span class="toggle-label">Micro-Animations & Glows</span>
+              <span class="toggle-desc">Neon radar pulses, particle bursts & floating effects</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggle-animations" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========================================================
+         FLOATING AI MASCOT GUIDE
+         ======================================================== -->
+    <div class="ai-mascot-dock" id="ai-mascot-dock" role="complementary" aria-label="AI Guide">
+      <div class="mascot-robot-container" id="mascot-robot-avatar" title="I am A.P.E.X. - your Hunter Neural Guide!">
+        <div class="robot-avatar">🤖</div>
+        <div class="robot-glow-ring"></div>
+      </div>
+      <div class="mascot-speech-bubble" id="mascot-speech-bubble">
+        <div class="bubble-speaker">A.P.E.X. SYSTEM</div>
+        <p class="bubble-text" id="mascot-speech-text">
+          Hunter, welcome! Tap on Level 1 to begin your 20-question multi-type challenge.
+        </p>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         MAIN NAVIGATION TAB BAR (BOTTOM FIXED BAR)
+         ======================================================== -->
+    <nav class="bottom-nav" id="bottom-nav" aria-label="Main Navigation">
+      <button class="nav-tab active" data-tab="tab-lingo" id="nav-btn-lingo" aria-label="Lingo Path">
+        <span class="tab-icon">🗺️</span>
+        <span class="tab-label">Lingo</span>
+        <span class="tab-indicator"></span>
+      </button>
+
+      <button class="nav-tab" data-tab="tab-chess" id="nav-btn-chess" aria-label="Tactical Chess">
+        <span class="tab-icon">♟️</span>
+        <span class="tab-label">Chess</span>
+        <span class="tab-indicator"></span>
+      </button>
+
+      <button class="nav-tab" data-tab="tab-tournament" id="nav-btn-tournament" aria-label="Tournament Leagues">
+        <span class="tab-icon">🏆</span>
+        <span class="tab-label">Leagues</span>
+        <span class="tab-indicator"></span>
+      </button>
+
+      <button class="nav-tab" data-tab="tab-profile" id="nav-btn-profile" aria-label="Hunter Profile">
+        <span class="tab-icon">👤</span>
+        <span class="tab-label">Profile</span>
+        <span class="tab-indicator"></span>
+      </button>
+    </nav>
+
+  </div><!-- /app-viewport -->
+
+
+  <!-- ========================================================
+       MODAL 1: ADVANCED DUOLINGO 20-QUESTION QUIZ ENGINE
+       (Supports Multiple Choice, Word Scramble & Audio Matching)
+       ======================================================== -->
+  <div class="modal-overlay quiz-modal-overlay hidden" id="quiz-modal" role="dialog" aria-modal="true" aria-labelledby="quiz-level-title">
+    <div class="quiz-container">
+      <!-- Quiz Header -->
+      <div class="quiz-top-bar">
+        <button class="quiz-close-btn" id="btn-close-quiz" aria-label="Close Quiz">✕</button>
+        <div class="quiz-progress-track">
+          <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 5%;"></div>
+        </div>
+        <div class="quiz-question-counter" id="quiz-question-counter">1/20</div>
+        
+        <!-- Quiz In-Game Hearts -->
+        <div class="quiz-hearts-badge" id="quiz-hearts-badge" title="Energy Hearts remaining">
+          <span class="icon">❤️</span>
+          <span class="val" id="quiz-hearts-val">5</span>
+        </div>
+
+        <!-- 50/50 Neural Hack Booster -->
+        <button class="quiz-booster-btn" id="btn-quiz-booster-5050" title="Use 50/50 Neural Hack" aria-label="Use 50/50 Neural Hack">
+          <span class="icon">💡</span>
+          <span class="booster-count" id="quiz-booster-count">1</span>
+        </button>
+      </div>
+
+      <!-- Quiz Content Body -->
+      <div class="quiz-content-body">
+        <div class="quiz-meta-row">
+          <span class="quiz-level-badge" id="quiz-level-badge">LEVEL 01 • QUESTION 01/20</span>
+          <span class="quiz-difficulty-badge difficulty-easy" id="quiz-difficulty-tag">TIER 1 • WARM-UP</span>
+          <span class="quiz-exercise-type-tag" id="quiz-exercise-type-tag">TRANSLATION</span>
+        </div>
+        <h2 class="quiz-level-title" id="quiz-level-title">Neo-Tokyo Greetings</h2>
+
+        <!-- Exercise Instruction -->
+        <div class="exercise-instruction-text" id="quiz-task-instruction">
+          Translate this phrase into English:
+        </div>
+
+        <!-- ==========================================
+             EXERCISE FORMAT 1: CLASSIC MULTIPLE CHOICE
+             ========================================== -->
+        <div class="exercise-view" id="view-multiple-choice">
+          <div class="phrase-card">
+            <div class="phrase-main-row">
+              <span class="phrase-target-text" id="mc-prompt-text">こんにちは</span>
+              <button class="voice-btn" id="btn-pronounce-mc" aria-label="Pronounce phrase" title="Listen to audio">
+                🔊
+              </button>
+            </div>
+            <div class="phrase-romanization" id="mc-roman-text">(Konnichiwa)</div>
+            <div class="phrase-context-clue" id="mc-context-clue">Context: Standard polite daytime greeting in Tokyo.</div>
+          </div>
+
+          <div class="quiz-options-grid" id="mc-options-grid">
+            <!-- 4 Multiple choice buttons with English and Arabic subtitles -->
+          </div>
+        </div>
+
+        <!-- ==========================================
+             EXERCISE FORMAT 2: WORD SCRAMBLE / REORDERING
+             ========================================== -->
+        <div class="exercise-view hidden" id="view-word-scramble">
+          <div class="scramble-prompt-card">
+            <div class="scramble-target-row">
+              <span class="scramble-target-text" id="scramble-target-text">こんにちは</span>
+              <button class="voice-btn compact" id="btn-pronounce-scramble" title="Listen to audio">🔊</button>
+            </div>
+            <div class="scramble-target-arabic" id="scramble-target-arabic">(الترجمة: مرحباً / يوم سعيد)</div>
+          </div>
+
+          <!-- Assembled Words Target Slots Zone -->
+          <div class="scramble-answer-wrapper">
+            <div class="scramble-slot-label">Your Assembled Translation (Tap word to remove):</div>
+            <div class="scramble-answer-zone" id="scramble-answer-zone">
+              <span class="slot-placeholder" id="scramble-placeholder">Tap words below to place here...</span>
+            </div>
+          </div>
+
+          <!-- Words Bank Zone -->
+          <div class="scramble-bank-wrapper">
+            <div class="scramble-bank-label">Available Words Bank:</div>
+            <div class="scramble-bank-zone" id="scramble-bank-zone">
+              <!-- Interactive Word Chips -->
+            </div>
+          </div>
+
+          <div class="scramble-action-row">
+            <button class="action-btn secondary-btn compact-btn" id="btn-clear-scramble">
+              ↺ Reset Words
+            </button>
+            <button class="action-btn primary-btn compact-btn" id="btn-check-scramble">
+              CHECK SEQUENCE ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- ==========================================
+             EXERCISE FORMAT 3: AUDIO / PRONUNCIATION MATCHING
+             ========================================== -->
+        <div class="exercise-view hidden" id="view-audio-match">
+          <div class="audio-match-hero-card">
+            <button class="big-audio-wave-btn" id="btn-play-audio-exercise" title="Play phrase aloud">
+              <span class="audio-wave-icon">🔊</span>
+              <span class="audio-wave-ring"></span>
+            </button>
+            <div class="audio-match-prompt">Listen carefully and select the authentic meaning:</div>
+            <div class="audio-speed-row">
+              <button class="speed-toggle-btn active" id="btn-speed-normal">1.0x Normal</button>
+              <button class="speed-toggle-btn" id="btn-speed-slow">0.7x Slow</button>
+            </div>
+          </div>
+
+          <div class="quiz-options-grid" id="audio-options-grid">
+            <!-- 4 Multiple choice buttons with English and Arabic subtitles -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quiz Bottom Feedback Sheet -->
+      <div class="quiz-bottom-sheet hidden" id="quiz-bottom-sheet">
+        <div class="feedback-inner" id="feedback-inner">
+          <div class="feedback-status-row">
+            <div class="feedback-icon" id="feedback-icon">🎉</div>
+            <div class="feedback-text-group">
+              <h3 class="feedback-title" id="feedback-title">CORRECT!</h3>
+              <p class="feedback-explanation" id="feedback-explanation">"Konnichiwa" translates to "Hello / Good Day".</p>
+              <p class="feedback-arabic-explanation" id="feedback-arabic-explanation">الكلمة تعني مرحباً وتُستخدم في التحية النهارية.</p>
+            </div>
+          </div>
+          <button class="action-btn primary-btn quiz-continue-btn" id="btn-quiz-continue">
+            NEXT QUESTION (2/20) ➔
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Out-Of-Hearts Dialog Overlay -->
+      <div class="out-of-hearts-overlay hidden" id="out-of-hearts-overlay">
+        <div class="emergency-heart-card">
+          <div class="heart-broken-icon">💔</div>
+          <h3>Out of Energy Hearts!</h3>
+          <p>You have made too many errors. Refill your energy to continue your mission.</p>
+          <div class="heart-refill-actions">
+            <button class="action-btn primary-btn full-width" id="btn-refill-hearts-gem">
+              Refill 5 Hearts (30 💎)
+            </button>
+            <button class="action-btn secondary-btn full-width" id="btn-get-apex-pro-hearts">
+              Unlock Apex Pro (Unlimited ∞)
+            </button>
+            <button class="action-btn outline-btn full-width" id="btn-exit-hearts-quiz">
+              Return to Curriculum Path
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Level Victory Overlay (Triggered on Question 20 completion) -->
+      <div class="level-victory-overlay hidden" id="level-victory-overlay">
+        <div class="victory-summary-card">
+          <div class="victory-medal-icon">🎖️</div>
+          <h2 class="victory-header-title">LEVEL CLEARED!</h2>
+          <p class="victory-level-name" id="victory-level-name">Level 1: Neo-Tokyo Greetings</p>
+          
+          <div class="victory-stats-grid">
+            <div class="v-stat-tile">
+              <span class="v-label">Score</span>
+              <span class="v-val" id="victory-score-val">20 / 20</span>
+            </div>
+            <div class="v-stat-tile">
+              <span class="v-label">Gems Earned</span>
+              <span class="v-val highlight-gold">+20 💎</span>
+            </div>
+            <div class="v-stat-tile">
+              <span class="v-label">Hunter XP</span>
+              <span class="v-val highlight-cyan">+50 XP</span>
+            </div>
+          </div>
+
+          <button class="action-btn primary-btn full-width" id="btn-finish-level-victory">
+            CLAIM REWARDS & ADVANCE ➔
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       MODAL 2: LANGUAGE SELECTION MODAL
+       ======================================================== -->
+  <div class="modal-overlay hidden" id="language-modal" role="dialog" aria-modal="true" aria-labelledby="lang-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-title-icon">🌐</span>
+          <h2 class="modal-title" id="lang-modal-title">Target Language Protocol</h2>
+        </div>
+        <button class="modal-close-btn" id="btn-close-language" aria-label="Close Language Selector">✕</button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <p class="section-intro-text">Select which language curriculum to study. Your progress is saved independently for each track:</p>
+        
+        <div class="language-cards-grid">
+          <!-- Japanese -->
+          <div class="lang-selection-card active" data-lang="japanese">
+            <div class="lang-card-flag">🇯🇵</div>
+            <div class="lang-card-info">
+              <h4>Japanese (اليابانية)</h4>
+              <p>Neo-Tokyo Sector • Anime, Kanji & Honorifics</p>
+            </div>
+            <span class="lang-check-icon">✓</span>
+          </div>
+
+          <!-- French -->
+          <div class="lang-selection-card" data-lang="french">
+            <div class="lang-card-flag">🇫🇷</div>
+            <div class="lang-card-info">
+              <h4>French (الفرنسية)</h4>
+              <p>Neo-Paris Sector • Cyber Street Slang & Grammar</p>
+            </div>
+            <span class="lang-check-icon">✓</span>
+          </div>
+
+          <!-- Spanish -->
+          <div class="lang-selection-card" data-lang="spanish">
+            <div class="lang-card-flag">🇪🇸</div>
+            <div class="lang-card-info">
+              <h4>Spanish (الإسبانية)</h4>
+              <p>Neo-Madrid Sector • Conversational Speed & Commands</p>
+            </div>
+            <span class="lang-check-icon">✓</span>
+          </div>
+
+          <!-- English -->
+          <div class="lang-selection-card" data-lang="english">
+            <div class="lang-card-flag">🇬🇧</div>
+            <div class="lang-card-info">
+              <h4>English (الإنجليزية)</h4>
+              <p>Global Sector • Advanced Syntax & Idioms</p>
+            </div>
+            <span class="lang-check-icon">✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       MODAL 3: CYBERPUNK STORE & SUBSCRIPTION HUB
+       ======================================================== -->
+  <div class="modal-overlay hidden" id="store-modal" role="dialog" aria-modal="true" aria-labelledby="store-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-title-icon">🛒</span>
+          <h2 class="modal-title" id="store-modal-title">Store & Subscriptions</h2>
+        </div>
+        <div class="store-balance-badge">
+          <span>💎</span>
+          <span id="store-coin-counter">100</span>
+        </div>
+        <button class="modal-close-btn" id="btn-close-store" aria-label="Close Store">✕</button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <!-- Apex Pro Subscription Tier Hero Banner -->
+        <div class="subscription-hero-card" id="subscription-hero-card">
+          <div class="sub-badge-row">
+            <span class="sub-gold-badge">👑 MONARCH PASS</span>
+            <span class="sub-tier-label" id="sub-active-status">AVAILABLE</span>
+          </div>
+          <h3 class="sub-title">APEX PRO MEMBERSHIP</h3>
+          <p class="sub-desc">Gain god-tier benefits to accelerate your linguistic mastery:</p>
+          <ul class="sub-perks-list">
+            <li><span>❤️</span> Unlimited Energy Hearts (Never fail a lesson)</li>
+            <li><span>⚡</span> 2x Hunter XP Multiplier on all 20-question nodes</li>
+            <li><span>🎨</span> Instant Access to all Cyberpunk Visual Themes</li>
+            <li><span>💡</span> +3 Free 50/50 Neural Hacks daily</li>
+          </ul>
+          <button class="action-btn primary-btn full-width sub-upgrade-btn" id="btn-buy-apex-pro">
+            Unlock Apex Pro (150 💎)
+          </button>
+        </div>
+
+        <!-- Energy Refills Section -->
+        <div class="store-section" style="margin-top: 24px;">
+          <div class="store-section-header">
+            <span class="tag">ENERGY REFILLS</span>
+            <h3>Heart Restoration</h3>
+            <p>Replenish energy hearts to continue training uninterrupted</p>
+          </div>
+
+          <div class="powerup-item">
+            <div class="powerup-icon">❤️</div>
+            <div class="powerup-info">
+              <h4>Full Heart Restoration (+5 ❤️)</h4>
+              <p>Restores your hearts to maximum capacity immediately</p>
+            </div>
+            <button class="action-btn primary-btn powerup-buy-btn" id="btn-buy-heart-refill">
+              30 💎
+            </button>
+          </div>
+        </div>
+
+        <!-- Themes Section -->
+        <div class="store-section" style="margin-top: 24px;">
+          <div class="store-section-header">
+            <span class="tag">VISUAL AESTHETICS</span>
+            <h3>Cyberpunk UI Themes</h3>
+            <p>Unlock custom hunter visual matrices (50 💎 each)</p>
+          </div>
+
+          <div class="theme-items-grid">
+            <div class="store-item-card active" data-theme-id="cyber-default">
+              <div class="item-preview-swatch default-swatch"></div>
+              <div class="item-info">
+                <h4>Cyber Default</h4>
+                <p>Google Blue & Neon Cyan</p>
+              </div>
+              <button class="item-buy-btn equipped" data-theme-id="cyber-default">EQUIPPED</button>
+            </div>
+
+            <div class="store-item-card" data-theme-id="solo-shadow">
+              <div class="item-preview-swatch shadow-swatch"></div>
+              <div class="item-info">
+                <h4>Solo Shadow</h4>
+                <p>Monarch Dark Violet & Void</p>
+              </div>
+              <button class="item-buy-btn" data-theme-id="solo-shadow" data-cost="50">
+                50 💎
+              </button>
+            </div>
+
+            <div class="store-item-card" data-theme-id="tokyo-synth">
+              <div class="item-preview-swatch synth-swatch"></div>
+              <div class="item-info">
+                <h4>Tokyo Synth</h4>
+                <p>Neon Pink & Synth Gold</p>
+              </div>
+              <button class="item-buy-btn" data-theme-id="tokyo-synth" data-cost="50">
+                50 💎
+              </button>
+            </div>
+
+            <div class="store-item-card" data-theme-id="neon-matrix">
+              <div class="item-preview-swatch matrix-swatch"></div>
+              <div class="item-info">
+                <h4>Neon Matrix</h4>
+                <p>Digital Terminal Green</p>
+              </div>
+              <button class="item-buy-btn" data-theme-id="neon-matrix" data-cost="50">
+                50 💎
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Boosters Section -->
+        <div class="store-section" style="margin-top: 24px;">
+          <div class="store-section-header">
+            <span class="tag">TACTICAL UPGRADES</span>
+            <h3>Hunter Boosters</h3>
+            <p>Expend energy gems to boost your linguistic mastery</p>
+          </div>
+
+          <div class="powerup-list">
+            <div class="powerup-item">
+              <div class="powerup-icon">⚡</div>
+              <div class="powerup-info">
+                <h4>Instant XP Overdrive (+100 XP)</h4>
+                <p>Adds +100 Hunter XP directly to your profile</p>
+              </div>
+              <button class="action-btn primary-btn powerup-buy-btn" data-powerup="xp-boost" data-cost="50">
+                50 💎
+              </button>
+            </div>
+
+            <div class="powerup-item">
+              <div class="powerup-icon">💡</div>
+              <div class="powerup-info">
+                <h4>50/50 Neural Hack (+1 Charge)</h4>
+                <p>Eliminate 2 wrong answers during 20-question quizzes</p>
+              </div>
+              <button class="action-btn primary-btn powerup-buy-btn" data-powerup="hint-boost" data-cost="50">
+                50 💎
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       MODAL 4: SETTINGS & SETUP MODAL
+       ======================================================== -->
+  <div class="modal-overlay hidden" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-title-icon">⚙️</span>
+          <h2 class="modal-title" id="settings-modal-title">System Setup</h2>
+        </div>
+        <button class="modal-close-btn" id="btn-close-settings" aria-label="Close Settings">✕</button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <!-- Visual Theme Selection -->
+        <div class="setting-group-card">
+          <h3 class="group-title">
+            <span class="title-icon">🎨</span> Visual Theme & Style
+          </h3>
+          <p class="group-desc">Choose between Clean Google Material Design and Solo Leveling Cyberpunk.</p>
+          <div class="theme-switch-row">
+            <button class="theme-choice-btn" id="settings-theme-btn-material">
+              <span class="swatch-preview light-swatch"></span>
+              <span>Google Material (Light)</span>
+            </button>
+            <button class="theme-choice-btn active" id="settings-theme-btn-cyber">
+              <span class="swatch-preview dark-swatch"></span>
+              <span>Solo Cyberpunk (Dark)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Master Audio & Speech Controls -->
+        <div class="setting-group-card">
+          <h3 class="group-title">
+            <span class="title-icon">🔊</span> Audio & Pronunciation System
+          </h3>
+          <p class="group-desc">Configure sound effects synthesized by Web Audio API and SpeechSynthesis voices.</p>
+
+          <div class="setting-toggle-item">
+            <div class="toggle-text">
+              <span class="toggle-label">Master Sound Effects (SFX)</span>
+              <span class="toggle-desc">Tactile clicks, coin chimes, error buzzers & victory fanfares</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="settings-toggle-sound" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-toggle-item" style="margin-top: 14px;">
+            <div class="toggle-text">
+              <span class="toggle-label">Pronunciation & Voice (TTS)</span>
+              <span class="toggle-desc">Native audio playback for foreign vocabulary and sentences</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="settings-toggle-speech" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-toggle-item" style="margin-top: 14px;">
+            <div class="toggle-text">
+              <span class="toggle-label">Micro-Animations & Glows</span>
+              <span class="toggle-desc">Radar pulses, glow shaders & dynamic particle bursts</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="settings-toggle-animations" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Change Hunter Name -->
+        <div class="setting-group-card">
+          <h3 class="group-title">
+            <span class="title-icon">👤</span> Change Hunter Codename
+          </h3>
+          <p class="group-desc">Update your personalized codename displayed across rankings and missions.</p>
+          <div class="name-input-group">
+            <input type="text" id="settings-name-input" class="text-input" placeholder="Enter Hunter Name" maxlength="20">
+            <button class="action-btn primary-btn" id="btn-save-settings-name">Save</button>
+          </div>
+        </div>
+
+        <!-- App Architecture Info -->
+        <div class="setting-group-card">
+          <h3 class="group-title">App Architecture & Daily Life Engine</h3>
+          <p class="group-desc">Apex Lingo PWA v2.3.0. Everyday Real-Life Conversations, Progressive Difficulty & Duolingo Mechanics.</p>
+          <div class="system-chip-row">
+            <span class="chip">Daily Life (الحياة اليومية)</span>
+            <span class="chip">Travel & Food (سفر وطعام)</span>
+            <span class="chip">Word Scramble</span>
+            <span class="chip">Audio Matching</span>
+            <span class="chip">Progressive Curve</span>
+          </div>
+        </div>
+
+        <!-- Data Storage & Reset -->
+        <div class="setting-group-card">
+          <h3 class="group-title">Data Storage & Reset</h3>
+          <p class="group-desc">Resetting clears local storage and restores default starting state.</p>
+          <button class="action-btn outline-danger-btn full-width" id="btn-reset-storage">
+            Reset All Progress to Default
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       MODAL 5: ONBOARDING & WELCOME FLOW
+       ======================================================== -->
+  <div class="modal-overlay onboarding-overlay hidden" id="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboarding-step-title">
+    <div class="onboarding-card">
+      
+      <!-- Step 1: Hunter Name -->
+      <div class="onboarding-step active" id="onboard-step-1">
+        <div class="onboard-hero-icon">⚡</div>
+        <h2 class="onboard-title" id="onboarding-step-title">Awaken Your Hunter System</h2>
+        <p class="onboard-desc">Welcome to Apex Lingo. Enter your Hunter codename to calibrate your neural linguistic matrix:</p>
+        
+        <div class="onboard-input-wrap">
+          <input type="text" id="onboard-name-input" class="text-input onboard-input" placeholder="e.g. Sung Jin-Woo, Alex, Sarah..." maxlength="20" autofocus>
+        </div>
+
+        <button class="action-btn primary-btn full-width onboard-next-btn" id="btn-onboard-next-1">
+          CONFIRM CODENAME ➔
+        </button>
+      </div>
+
+      <!-- Step 2: Learning Goal -->
+      <div class="onboarding-step hidden" id="onboard-step-2">
+        <div class="onboard-hero-icon">⏱️</div>
+        <h2 class="onboard-title">Daily Training Intensity</h2>
+        <p class="onboard-desc">Select your daily commitment to optimize streak multipliers and XP gains:</p>
+
+        <div class="goal-selection-list">
+          <label class="goal-option-card active">
+            <input type="radio" name="learning-goal" value="casual" checked>
+            <div class="goal-info">
+              <span class="goal-name">Casual Hunter</span>
+              <span class="goal-sub">5 mins / day (1 Level Session)</span>
+            </div>
+            <span class="goal-badge">+10 XP</span>
+          </label>
+
+          <label class="goal-option-card">
+            <input type="radio" name="learning-goal" value="vanguard">
+            <div class="goal-info">
+              <span class="goal-name">Vanguard Hunter</span>
+              <span class="goal-sub">15 mins / day (3 Level Sessions)</span>
+            </div>
+            <span class="goal-badge">+25 XP</span>
+          </label>
+
+          <label class="goal-option-card">
+            <input type="radio" name="learning-goal" value="monarch">
+            <div class="goal-info">
+              <span class="goal-name">Shadow Monarch</span>
+              <span class="goal-sub">30 mins / day (Intensive Polyglot)</span>
+            </div>
+            <span class="goal-badge">+50 XP</span>
+          </label>
+        </div>
+
+        <button class="action-btn primary-btn full-width onboard-next-btn" id="btn-onboard-next-2">
+          CONFIRM COMMITMENT ➔
+        </button>
+      </div>
+
+      <!-- Step 3: Target Language -->
+      <div class="onboarding-step hidden" id="onboard-step-3">
+        <div class="onboard-hero-icon">⛩️</div>
+        <h2 class="onboard-title">Choose Your Starting Track</h2>
+        <p class="onboard-desc">Select which language territory you wish to infiltrate first (you can switch anytime):</p>
+
+        <div class="onboard-lang-grid">
+          <div class="onboard-lang-tile active" data-lang="japanese">
+            <span class="flag">🇯🇵</span>
+            <span class="label">Japanese</span>
+            <span class="sub">Neo-Tokyo</span>
+          </div>
+          <div class="onboard-lang-tile" data-lang="french">
+            <span class="flag">🇫🇷</span>
+            <span class="label">French</span>
+            <span class="sub">Neo-Paris</span>
+          </div>
+          <div class="onboard-lang-tile" data-lang="spanish">
+            <span class="flag">🇪🇸</span>
+            <span class="label">Spanish</span>
+            <span class="sub">Neo-Madrid</span>
+          </div>
+          <div class="onboard-lang-tile" data-lang="english">
+            <span class="flag">🇬🇧</span>
+            <span class="label">English</span>
+            <span class="sub">Global Sector</span>
+          </div>
+        </div>
+
+        <button class="action-btn primary-btn full-width onboard-finish-btn" id="btn-onboard-finish">
+          ENTER APEX LINGO ➔
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       MODAL 6: BULLETPROOF GOOGLE SIGN-IN MODAL (FIXED)
+       ======================================================== -->
+  <div class="modal-overlay hidden" id="google-auth-modal" role="dialog" aria-modal="true" aria-labelledby="g-modal-title">
+    <div class="modal-card google-modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <svg width="22" height="22" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+          </svg>
+          <h2 class="modal-title" id="g-modal-title">Sign in with Google</h2>
+        </div>
+        <button class="modal-close-btn" id="btn-close-google-modal">✕</button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <p class="section-intro-text">Select a Google account to sync your Hunter progress, gems, and unlocked stages:</p>
+        
+        <div class="google-account-list">
+          <!-- Account Option 1 -->
+          <div class="google-account-tile" data-email="monarch.jinwoo@shadowguild.io" data-name="Sung Jin-Woo" data-avatar="👑">
+            <div class="g-tile-avatar">👑</div>
+            <div class="g-tile-info">
+              <span class="g-name">Sung Jin-Woo</span>
+              <span class="g-mail">monarch.jinwoo@shadowguild.io</span>
+            </div>
+            <span class="g-tile-arrow">➔</span>
+          </div>
+
+          <!-- Account Option 2 -->
+          <div class="google-account-tile" data-email="hunter.solo@apexlingo.io" data-name="Hunter Solo" data-avatar="🤖">
+            <div class="g-tile-avatar">🤖</div>
+            <div class="g-tile-info">
+              <span class="g-name">Hunter Solo (Google)</span>
+              <span class="g-mail">hunter.solo@apexlingo.io</span>
+            </div>
+            <span class="g-tile-arrow">➔</span>
+          </div>
+        </div>
+
+        <!-- Custom Email input -->
+        <div class="custom-google-signin-box">
+          <span class="or-separator">OR USE YOUR EMAIL</span>
+          <div class="input-with-btn">
+            <input type="email" id="custom-google-email-input" class="text-input" placeholder="Enter your Google email...">
+            <button class="action-btn primary-btn compact-btn" id="btn-custom-google-login">Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Particle / Confetti Canvas Layer -->
+  <canvas id="fx-canvas" class="fx-canvas" aria-hidden="true"></canvas>
+
+  <!-- Main JavaScript Engine -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme with NoActionBar and Cyberpunk Status Bar -->
+    <style name="Theme.ApexLingo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/google_blue</item>
+        <item name="colorSecondary">@color/cyan_neon</item>
+        <item name="android:statusBarColor">@color/bg_space</item>
+        <item name="android:navigationBarColor">@color/bg_space</item>
+        <item name="android:windowBackground">@color/bg_space</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

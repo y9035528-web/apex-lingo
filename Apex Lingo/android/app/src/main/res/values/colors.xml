@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_space">#05070B</color>
+    <color name="bg_surface">#0A0E17</color>
+    <color name="google_blue">#1A73E8</color>
+    <color name="cyan_neon">#00FFFF</color>
+    <color name="orange_neon">#FF8C00</color>
+</resources>
