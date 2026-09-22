@@ -1,39 +1,41 @@
-name: Deploy Apex Lingo
+name: Build APK & Deploy
 
 on:
   push:
     branches: ["main"]
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
-  build-web:
+  build-apk:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Set up Java JDK
+        uses: actions/setup-java@v4
         with:
-          path: '.'
+          distribution: 'temurin'
+          java-version: '17'
 
-  deploy:
-    needs: build-web
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Cordova globally
+        run: npm install -g cordova
+
+      - name: Create Cordova Project
+        run: |
+          cordova create myapp com.apex.lingo ApexLingo
+          cd myapp
+          # نسخ ملفات مشروعك إلى مجلد كوردفا
+          cp -r ../index.html ../style.html ../script.js www/ 2>/dev/null || cp -r ../* www/
+          cordova platform add android
+          cordova build android --release
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Apex-Lingo-APK
+          path: myapp/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
