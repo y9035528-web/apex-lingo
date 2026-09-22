@@ -1,4 +1,4 @@
-name: Deploy and Build APK
+name: Deploy Apex Lingo
 
 on:
   push:
@@ -37,28 +37,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  build-apk:
-    needs: build-web
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Generate APK using PWABuilder CLI
-        run: |
-          npm install -g @pwabuilder/pwabuilder-cli
-          # سيتم توليد حزمة أندرويد تلقائياً من رابط موقعك المباشر
-          echo "PWA packaged successfully!"
-
-      # يمكنك هنا استخدام أداة تفريغ لتصدير ملف APK وجعله متاحاً في قسم Releases
-      - name: Create GitHub Release Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Apex-Lingo-APK
-          path: .
